@@ -7,6 +7,9 @@ services:
     build: ./application
     # Name image
     image: openempi-app
+    # Enable healthchecks on the images so containers can automatically restart if they stop responding
+    labels:
+      com.microsoft.acs.dcos.marathon.healthcheck: "true"
     # Map application container port 8080 to docker port 8080
     ports:
       - "8080:8080"
@@ -19,3 +22,10 @@ services:
     build: ./postgres
     # Name image
     image: openempi-db
+    # Enable healthchecks on the images so containers can automatically restart if they stop responding
+    labels:
+      com.microsoft.acs.dcos.marathon.healthcheck: "true"
+    # Map application container port 5432 to docker port 5432
+    ports:
+      - "5432:5432"
+      

@@ -9,3 +9,6 @@ LABEL OpenEMPI-Version="3.1.0" \
 COPY ./scripts ./scripts
 COPY ./01_db_creation.sh ./docker-entrypoint-initdb.d/01_db_creation.sh
 COPY ./02_db_init.sh ./docker-entrypoint-initdb.d/02_db_init.sh
+
+# Exposes port 5432 from this image
+EXPOSE 5432
